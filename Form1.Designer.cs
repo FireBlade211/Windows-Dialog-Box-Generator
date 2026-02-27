@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            headingTextControl1 = new HeadingTextControl();
             groupBox4 = new GroupBox();
             numericUpDown2 = new NumericUpDown();
             checkBox55 = new CheckBox();
@@ -72,7 +73,6 @@
             label4 = new Label();
             msgBoxTextBox = new TextBox();
             label3 = new Label();
-            label2 = new Label();
             tabPage2 = new TabPage();
             linkLabel3 = new LinkLabel();
             checkBox15 = new CheckBox();
@@ -139,7 +139,6 @@
             label14 = new Label();
             textBox3 = new TextBox();
             label13 = new Label();
-            label12 = new Label();
             tabPage3 = new TabPage();
             label29 = new Label();
             checkBox19 = new CheckBox();
@@ -151,7 +150,6 @@
             button8 = new Button();
             label27 = new Label();
             label26 = new Label();
-            label25 = new Label();
             tabPage4 = new TabPage();
             checkBox29 = new CheckBox();
             checkBox28 = new CheckBox();
@@ -175,7 +173,6 @@
             button10 = new Button();
             label33 = new Label();
             label31 = new Label();
-            label32 = new Label();
             panel3 = new Panel();
             button9 = new Button();
             label30 = new Label();
@@ -195,7 +192,6 @@
             textBox11 = new TextBox();
             checkBox30 = new CheckBox();
             label40 = new Label();
-            label41 = new Label();
             tabPage6 = new TabPage();
             label51 = new Label();
             checkBox43 = new CheckBox();
@@ -216,7 +212,6 @@
             numericUpDown9 = new NumericUpDown();
             label45 = new Label();
             label43 = new Label();
-            label44 = new Label();
             tabPage7 = new TabPage();
             checkBox52 = new CheckBox();
             label55 = new Label();
@@ -230,7 +225,6 @@
             label54 = new Label();
             checkBox44 = new CheckBox();
             label52 = new Label();
-            label53 = new Label();
             tabPage8 = new TabPage();
             label59 = new Label();
             pictureBox3 = new PictureBox();
@@ -239,7 +233,6 @@
             label56 = new Label();
             numericUpDown13 = new NumericUpDown();
             textBox14 = new TextBox();
-            label57 = new Label();
             showDlgButton = new Button();
             button1 = new Button();
             label1 = new Label();
@@ -259,6 +252,13 @@
             exportDlg = new SaveFileDialog();
             importDlg = new OpenFileDialog();
             button15 = new Button();
+            headingTextControl2 = new HeadingTextControl();
+            headingTextControl3 = new HeadingTextControl();
+            headingTextControl4 = new HeadingTextControl();
+            headingTextControl5 = new HeadingTextControl();
+            headingTextControl6 = new HeadingTextControl();
+            headingTextControl7 = new HeadingTextControl();
+            headingTextControl8 = new HeadingTextControl();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -316,6 +316,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(headingTextControl1);
             tabPage1.Controls.Add(groupBox4);
             tabPage1.Controls.Add(checkBox54);
             tabPage1.Controls.Add(groupBox3);
@@ -337,7 +338,6 @@
             tabPage1.Controls.Add(label4);
             tabPage1.Controls.Add(msgBoxTextBox);
             tabPage1.Controls.Add(label3);
-            tabPage1.Controls.Add(label2);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -346,6 +346,14 @@
             tabPage1.Tag = "msgbox";
             tabPage1.Text = "Message Box";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // headingTextControl1
+            // 
+            headingTextControl1.Location = new Point(17, 13);
+            headingTextControl1.Name = "headingTextControl1";
+            headingTextControl1.Size = new Size(114, 23);
+            headingTextControl1.TabIndex = 24;
+            headingTextControl1.Text = "Message Box";
             // 
             // groupBox4
             // 
@@ -782,19 +790,9 @@
             label3.TabIndex = 1;
             label3.Text = "&Text:";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14F);
-            label2.ForeColor = SystemColors.Highlight;
-            label2.Location = new Point(11, 11);
-            label2.Name = "label2";
-            label2.Size = new Size(122, 25);
-            label2.TabIndex = 0;
-            label2.Text = "Message Box";
-            // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(headingTextControl2);
             tabPage2.Controls.Add(linkLabel3);
             tabPage2.Controls.Add(checkBox15);
             tabPage2.Controls.Add(groupBox9);
@@ -820,7 +818,6 @@
             tabPage2.Controls.Add(label14);
             tabPage2.Controls.Add(textBox3);
             tabPage2.Controls.Add(label13);
-            tabPage2.Controls.Add(label12);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -1503,19 +1500,9 @@
             label13.TabIndex = 2;
             label13.Text = "Caption (title):";
             // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 14F);
-            label12.ForeColor = SystemColors.Highlight;
-            label12.Location = new Point(12, 8);
-            label12.Name = "label12";
-            label12.Size = new Size(107, 25);
-            label12.TabIndex = 1;
-            label12.Text = "Task Dialog";
-            // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(headingTextControl3);
             tabPage3.Controls.Add(label29);
             tabPage3.Controls.Add(checkBox19);
             tabPage3.Controls.Add(checkBox18);
@@ -1526,7 +1513,6 @@
             tabPage3.Controls.Add(button8);
             tabPage3.Controls.Add(label27);
             tabPage3.Controls.Add(label26);
-            tabPage3.Controls.Add(label25);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(823, 419);
@@ -1634,19 +1620,9 @@
             label26.TabIndex = 3;
             label26.Text = "Warning: Common Dialog (commdlg32.dll) - Some features may not be available.";
             // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Font = new Font("Segoe UI", 14F);
-            label25.ForeColor = SystemColors.Highlight;
-            label25.Location = new Point(9, 12);
-            label25.Name = "label25";
-            label25.Size = new Size(58, 25);
-            label25.TabIndex = 2;
-            label25.Text = "Color";
-            // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(headingTextControl4);
             tabPage4.Controls.Add(checkBox29);
             tabPage4.Controls.Add(checkBox28);
             tabPage4.Controls.Add(checkBox27);
@@ -1669,7 +1645,6 @@
             tabPage4.Controls.Add(button10);
             tabPage4.Controls.Add(label33);
             tabPage4.Controls.Add(label31);
-            tabPage4.Controls.Add(label32);
             tabPage4.Controls.Add(panel3);
             tabPage4.Controls.Add(button9);
             tabPage4.Controls.Add(label30);
@@ -1905,17 +1880,6 @@
             label31.TabIndex = 11;
             label31.Text = "Warning: Common Dialog (commdlg32.dll) - Some features may not be available.";
             // 
-            // label32
-            // 
-            label32.AutoSize = true;
-            label32.Font = new Font("Segoe UI", 14F);
-            label32.ForeColor = SystemColors.Highlight;
-            label32.Location = new Point(11, 9);
-            label32.Name = "label32";
-            label32.Size = new Size(49, 25);
-            label32.TabIndex = 10;
-            label32.Text = "Font";
-            // 
             // panel3
             // 
             panel3.BackColor = Color.Black;
@@ -1945,6 +1909,7 @@
             // 
             // tabPage5
             // 
+            tabPage5.Controls.Add(headingTextControl5);
             tabPage5.Controls.Add(button13);
             tabPage5.Controls.Add(button12);
             tabPage5.Controls.Add(checkBox36);
@@ -1960,7 +1925,6 @@
             tabPage5.Controls.Add(textBox11);
             tabPage5.Controls.Add(checkBox30);
             tabPage5.Controls.Add(label40);
-            tabPage5.Controls.Add(label41);
             tabPage5.Location = new Point(4, 24);
             tabPage5.Name = "tabPage5";
             tabPage5.Size = new Size(823, 419);
@@ -2126,19 +2090,9 @@
             label40.TabIndex = 13;
             label40.Text = "Warning: Common Dialog (commdlg32.dll) - Some features may not be available.";
             // 
-            // label41
-            // 
-            label41.AutoSize = true;
-            label41.Font = new Font("Segoe UI", 14F);
-            label41.ForeColor = SystemColors.Highlight;
-            label41.Location = new Point(9, 12);
-            label41.Name = "label41";
-            label41.Size = new Size(65, 25);
-            label41.TabIndex = 12;
-            label41.Text = "Folder";
-            // 
             // tabPage6
             // 
+            tabPage6.Controls.Add(headingTextControl6);
             tabPage6.Controls.Add(label51);
             tabPage6.Controls.Add(checkBox43);
             tabPage6.Controls.Add(checkBox42);
@@ -2158,7 +2112,6 @@
             tabPage6.Controls.Add(numericUpDown9);
             tabPage6.Controls.Add(label45);
             tabPage6.Controls.Add(label43);
-            tabPage6.Controls.Add(label44);
             tabPage6.Location = new Point(4, 24);
             tabPage6.Name = "tabPage6";
             tabPage6.Size = new Size(823, 419);
@@ -2356,19 +2309,9 @@
             label43.TabIndex = 15;
             label43.Text = "Warning: Common Dialog (commdlg32.dll) - Some features may not be available.";
             // 
-            // label44
-            // 
-            label44.AutoSize = true;
-            label44.Font = new Font("Segoe UI", 14F);
-            label44.ForeColor = SystemColors.Highlight;
-            label44.Location = new Point(9, 9);
-            label44.Name = "label44";
-            label44.Size = new Size(106, 25);
-            label44.TabIndex = 14;
-            label44.Text = "Page Setup";
-            // 
             // tabPage7
             // 
+            tabPage7.Controls.Add(headingTextControl7);
             tabPage7.Controls.Add(checkBox52);
             tabPage7.Controls.Add(label55);
             tabPage7.Controls.Add(checkBox51);
@@ -2381,7 +2324,6 @@
             tabPage7.Controls.Add(label54);
             tabPage7.Controls.Add(checkBox44);
             tabPage7.Controls.Add(label52);
-            tabPage7.Controls.Add(label53);
             tabPage7.Location = new Point(4, 24);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new Padding(3);
@@ -2518,19 +2460,9 @@
             label52.TabIndex = 17;
             label52.Text = "Warning: Common Dialog (commdlg32.dll) - Some features may not be available.";
             // 
-            // label53
-            // 
-            label53.AutoSize = true;
-            label53.Font = new Font("Segoe UI", 14F);
-            label53.ForeColor = SystemColors.Highlight;
-            label53.Location = new Point(9, 8);
-            label53.Name = "label53";
-            label53.Size = new Size(52, 25);
-            label53.TabIndex = 16;
-            label53.Text = "Print";
-            // 
             // tabPage8
             // 
+            tabPage8.Controls.Add(headingTextControl8);
             tabPage8.Controls.Add(label59);
             tabPage8.Controls.Add(pictureBox3);
             tabPage8.Controls.Add(label58);
@@ -2538,7 +2470,6 @@
             tabPage8.Controls.Add(label56);
             tabPage8.Controls.Add(numericUpDown13);
             tabPage8.Controls.Add(textBox14);
-            tabPage8.Controls.Add(label57);
             tabPage8.Location = new Point(4, 24);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new Padding(3);
@@ -2610,17 +2541,6 @@
             textBox14.TabIndex = 19;
             textBox14.Text = "C:\\Windows\\System32\\shell32.dll";
             textBox14.TextChanged += textBox14_TextChanged;
-            // 
-            // label57
-            // 
-            label57.AutoSize = true;
-            label57.Font = new Font("Segoe UI", 14F);
-            label57.ForeColor = SystemColors.Highlight;
-            label57.Location = new Point(9, 7);
-            label57.Name = "label57";
-            label57.Size = new Size(48, 25);
-            label57.TabIndex = 18;
-            label57.Text = "Icon";
             // 
             // showDlgButton
             // 
@@ -2772,6 +2692,62 @@
             button15.UseVisualStyleBackColor = true;
             button15.Click += button15_Click;
             // 
+            // headingTextControl2
+            // 
+            headingTextControl2.Location = new Point(10, 9);
+            headingTextControl2.Name = "headingTextControl2";
+            headingTextControl2.Size = new Size(114, 23);
+            headingTextControl2.TabIndex = 28;
+            headingTextControl2.Text = "Task Dialog";
+            // 
+            // headingTextControl3
+            // 
+            headingTextControl3.Location = new Point(15, 11);
+            headingTextControl3.Name = "headingTextControl3";
+            headingTextControl3.Size = new Size(114, 23);
+            headingTextControl3.TabIndex = 29;
+            headingTextControl3.Text = "Color";
+            // 
+            // headingTextControl4
+            // 
+            headingTextControl4.Location = new Point(14, 11);
+            headingTextControl4.Name = "headingTextControl4";
+            headingTextControl4.Size = new Size(114, 23);
+            headingTextControl4.TabIndex = 33;
+            headingTextControl4.Text = "Font";
+            // 
+            // headingTextControl5
+            // 
+            headingTextControl5.Location = new Point(14, 13);
+            headingTextControl5.Name = "headingTextControl5";
+            headingTextControl5.Size = new Size(114, 23);
+            headingTextControl5.TabIndex = 34;
+            headingTextControl5.Text = "Folder";
+            // 
+            // headingTextControl6
+            // 
+            headingTextControl6.Location = new Point(13, 10);
+            headingTextControl6.Name = "headingTextControl6";
+            headingTextControl6.Size = new Size(114, 23);
+            headingTextControl6.TabIndex = 35;
+            headingTextControl6.Text = "Page Setup";
+            // 
+            // headingTextControl7
+            // 
+            headingTextControl7.Location = new Point(13, 9);
+            headingTextControl7.Name = "headingTextControl7";
+            headingTextControl7.Size = new Size(114, 23);
+            headingTextControl7.TabIndex = 37;
+            headingTextControl7.Text = "Print";
+            // 
+            // headingTextControl8
+            // 
+            headingTextControl8.Location = new Point(10, 6);
+            headingTextControl8.Name = "headingTextControl8";
+            headingTextControl8.Size = new Size(114, 23);
+            headingTextControl8.TabIndex = 38;
+            headingTextControl8.Text = "Icon";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2858,7 +2834,6 @@
         private TextBox OutputLogsBox;
         private Label label11;
         private Button button3;
-        private Label label12;
         private Label label13;
         private TextBox textBox3;
         private Label label14;
@@ -2926,7 +2901,6 @@
         private LinkLabel linkLabel3;
         private TabPage tabPage3;
         private Label label26;
-        private Label label25;
         private ColorDialog colorDialog1;
         private Panel panel2;
         private Button button8;
@@ -2944,7 +2918,6 @@
         private Label label30;
         private Label label33;
         private Label label31;
-        private Label label32;
         private Button button10;
         private RichTextBox richTextBox1;
         private Label label34;
@@ -2968,7 +2941,6 @@
         private TabPage tabPage5;
         private FolderBrowserDialog folderBrowserDialog1;
         private Label label40;
-        private Label label41;
         private CheckBox checkBox30;
         private TextBox textBox13;
         private ComboBox comboBox4;
@@ -2992,7 +2964,6 @@
         private NumericUpDown numericUpDown9;
         private Label label45;
         private Label label43;
-        private Label label44;
         private Label label46;
         private Label label49;
         private Label label48;
@@ -3009,7 +2980,6 @@
         private TabPage tabPage7;
         private PrintDialog printDialog1;
         private Label label52;
-        private Label label53;
         private Label label54;
         private CheckBox checkBox44;
         private CheckBox checkBox47;
@@ -3023,7 +2993,6 @@
         private CheckBox checkBox52;
         private PrintPreviewDialog printPreviewDialog1;
         private TabPage tabPage8;
-        private Label label57;
         private PictureBox pictureBox2;
         private Label label56;
         private NumericUpDown numericUpDown13;
@@ -3071,7 +3040,6 @@
         private Label label4;
         private TextBox msgBoxTextBox;
         private Label label3;
-        private Label label2;
         private RadioButton radioButton10;
         private RadioButton radioButton9;
         private RadioButton radioButton8;
@@ -3079,5 +3047,13 @@
         private GroupBox groupBox4;
         private CheckBox checkBox55;
         private NumericUpDown numericUpDown2;
+        private HeadingTextControl headingTextControl1;
+        private HeadingTextControl headingTextControl2;
+        private HeadingTextControl headingTextControl3;
+        private HeadingTextControl headingTextControl4;
+        private HeadingTextControl headingTextControl5;
+        private HeadingTextControl headingTextControl6;
+        private HeadingTextControl headingTextControl7;
+        private HeadingTextControl headingTextControl8;
     }
 }
