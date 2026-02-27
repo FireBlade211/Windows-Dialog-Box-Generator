@@ -16,9 +16,6 @@ namespace Windows_Dialog_Box_Generator
 
         private List<TaskDialogControl> TaskDlgControls = [];
 
-        [LibraryImport("user32.dll", EntryPoint = "SendMessageW")]
-        private static partial IntPtr SendMessage(IntPtr hWnd, uint Msg, UIntPtr wParam, IntPtr lParam);
-
         public Form1()
         {
             InitializeComponent();
@@ -73,18 +70,18 @@ namespace Windows_Dialog_Box_Generator
             //    radioButton18.Image = iconQuestion.ToBitmap();
             //}
 
-            radioButton15.Image = SystemIcons.GetStockIcon(StockIconId.Info, 16).ToBitmap();
-            radioButton16.Image = SystemIcons.GetStockIcon(StockIconId.Warning, 16).ToBitmap();
-            radioButton17.Image = SystemIcons.GetStockIcon(StockIconId.Error, 16).ToBitmap();
+            radioButton15.Image = StockIconHelper.GetIcon(StockIcon.Info, StockIconOptions.SmallIcon).ToBitmap();
+            radioButton16.Image = StockIconHelper.GetIcon(StockIcon.Warning, StockIconOptions.SmallIcon).ToBitmap();
+            radioButton17.Image = StockIconHelper.GetIcon(StockIcon.Error, StockIconOptions.SmallIcon).ToBitmap();
 
-            radioButton18.Image = StockIconHelper.GetIcon(23).ToBitmap(); // 23 = SIID_HELP
+            radioButton18.Image = StockIconHelper.GetIcon(StockIcon.Help).ToBitmap();
 
-            radioButton25.Image = SystemIcons.GetStockIcon(StockIconId.Info, 16).ToBitmap();
-            radioButton26.Image = SystemIcons.GetStockIcon(StockIconId.Warning, 16).ToBitmap();
-            radioButton27.Image = SystemIcons.GetStockIcon(StockIconId.Error, 16).ToBitmap();
-            radioButton28.Image = SystemIcons.GetStockIcon(StockIconId.Shield, 16).ToBitmap();
-            radioButton29.Image = SystemIcons.GetStockIcon(StockIconId.Shield, 16).ToBitmap();
-            radioButton30.Image = SystemIcons.GetStockIcon(StockIconId.Shield, 16).ToBitmap();
+            radioButton25.Image = StockIconHelper.GetIcon(StockIcon.Info, StockIconOptions.SmallIcon).ToBitmap();
+            radioButton26.Image = StockIconHelper.GetIcon(StockIcon.Warning, StockIconOptions.SmallIcon).ToBitmap();
+            radioButton27.Image = StockIconHelper.GetIcon(StockIcon.Error, StockIconOptions.SmallIcon).ToBitmap();
+            radioButton28.Image = StockIconHelper.GetIcon(StockIcon.Shield, StockIconOptions.SmallIcon).ToBitmap();
+            radioButton29.Image = StockIconHelper.GetIcon(StockIcon.Shield, StockIconOptions.SmallIcon).ToBitmap();
+            radioButton30.Image = StockIconHelper.GetIcon(StockIcon.Shield, StockIconOptions.SmallIcon).ToBitmap();
             radioButton31.Image = Icon.ExtractIcon(GetImageresPath(), -106, 16)?.ToBitmap();
             radioButton32.Image = Icon.ExtractIcon(GetImageresPath(), -107, 16)?.ToBitmap();
             radioButton33.Image = Icon.ExtractIcon(GetImageresPath(), -105, 16)?.ToBitmap();
@@ -387,7 +384,8 @@ namespace Windows_Dialog_Box_Generator
 
                                             // We can update the icon using a SendMessage call. But we must specify the icon via ID, not an object or hIcon handle
                                             // We do NOT use the negative of the ID, since the API is doing other stuff with the ID and handles it automatically
-                                            SendMessage(hwnd, (uint)TDM.UPDATE_ICON, UIntPtr.Zero, new IntPtr(UIHelper.GetCheckedRadioButton(groupBox6)?.Name switch
+                                            Window.FromHandle(hwnd)?.SendMessage((uint)TDM.UPDATE_ICON, nuint.Zero,
+                                                new nint(UIHelper.GetCheckedRadioButton(groupBox6)?.Name switch
                                             {
                                                 "radioButton25" => 81,
                                                 "radioButton26" => 84,
@@ -640,7 +638,7 @@ namespace Windows_Dialog_Box_Generator
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (DialogHelper.ShowPickIconDialog(Handle, !string.IsNullOrEmpty(taskDlg_footnoteIconPath) ? taskDlg_footnoteIconPath : GetImageresPath(),
+            if (Shell32.ShowPickIconDialog(Handle, !string.IsNullOrEmpty(taskDlg_footnoteIconPath) ? taskDlg_footnoteIconPath : GetImageresPath(),
                 taskDlg_footnoteIconIndex != null ? (int)taskDlg_footnoteIconIndex : 0, out string path, out int idx))
             {
                 taskDlg_footnoteIconPath = path;
@@ -658,7 +656,7 @@ namespace Windows_Dialog_Box_Generator
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (DialogHelper.ShowPickIconDialog(Handle, !string.IsNullOrEmpty(taskDlg_iconPath) ? taskDlg_iconPath : GetImageresPath(),
+            if (Shell32.ShowPickIconDialog(Handle, !string.IsNullOrEmpty(taskDlg_iconPath) ? taskDlg_iconPath : GetImageresPath(),
                 taskDlg_iconIndex, out string path, out int idx))
             {
                 taskDlg_iconPath = path;
@@ -695,7 +693,7 @@ namespace Windows_Dialog_Box_Generator
                 Caption = "How do I use links?",
                 Heading = "How do I use links?",
                 Icon = TaskDialogIcon.Information,
-                Text = "Task Dialogs allow you to embed links within them, such as this one. To use them, first, enable the Enable Links check box." +
+                Text = "Task Dialogs allow you to embed links within them. To use them, first, enable the Enable Links check box." +
                 " If you put URLs instead of regular strings of text in your links, you may also want to enable Auto-navigate to URLs. Now, to insert a URL into the task" +
                 " dialog message, footnote, or expander, put the string to turn into a link between the <a> XML tag, for example: <a href=\"https://microsoft.com\">" +
                 "This is some text</a>. The href attribute specifies the string or URL to invoke.",
