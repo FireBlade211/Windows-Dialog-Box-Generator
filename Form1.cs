@@ -74,7 +74,7 @@ namespace Windows_Dialog_Box_Generator
             radioButton16.Image = StockIconHelper.GetIcon(StockIcon.Warning, StockIconOptions.SmallIcon).ToBitmap();
             radioButton17.Image = StockIconHelper.GetIcon(StockIcon.Error, StockIconOptions.SmallIcon).ToBitmap();
 
-            radioButton18.Image = StockIconHelper.GetIcon(StockIcon.Help).ToBitmap();
+            radioButton18.Image = StockIconHelper.GetIcon(StockIcon.Help, StockIconOptions.SmallIcon).ToBitmap();
 
             radioButton25.Image = StockIconHelper.GetIcon(StockIcon.Info, StockIconOptions.SmallIcon).ToBitmap();
             radioButton26.Image = StockIconHelper.GetIcon(StockIcon.Warning, StockIconOptions.SmallIcon).ToBitmap();
