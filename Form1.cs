@@ -650,6 +650,13 @@ namespace Windows_Dialog_Box_Generator
                             }
                             break;
                         }
+                    case "printprevw":
+                        {
+                            printPreviewDialog1.ShowDialog();
+
+                            break;
+                        }
+                        
                 }
             }
             catch (Exception ex)
@@ -1721,6 +1728,11 @@ namespace Windows_Dialog_Box_Generator
         private void button15_Click(object sender, EventArgs e)
         {
             Shell32.ShellAbout(Handle, "Windows Dialog Box Generator", "You are running Windows Dialog Box Generator v1.1.", Icon);
+        }
+
+        private void checkBox56_CheckedChanged(object sender, EventArgs e)
+        {
+            printPreviewDialog1.UseAntiAlias = checkBox56.Checked;
         }
     }
 

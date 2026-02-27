@@ -74,6 +74,7 @@
             msgBoxTextBox = new TextBox();
             label3 = new Label();
             tabPage2 = new TabPage();
+            headingTextControl2 = new HeadingTextControl();
             linkLabel3 = new LinkLabel();
             checkBox15 = new CheckBox();
             groupBox9 = new GroupBox();
@@ -140,6 +141,7 @@
             textBox3 = new TextBox();
             label13 = new Label();
             tabPage3 = new TabPage();
+            headingTextControl3 = new HeadingTextControl();
             label29 = new Label();
             checkBox19 = new CheckBox();
             checkBox18 = new CheckBox();
@@ -151,6 +153,7 @@
             label27 = new Label();
             label26 = new Label();
             tabPage4 = new TabPage();
+            headingTextControl4 = new HeadingTextControl();
             checkBox29 = new CheckBox();
             checkBox28 = new CheckBox();
             checkBox27 = new CheckBox();
@@ -177,6 +180,7 @@
             button9 = new Button();
             label30 = new Label();
             tabPage5 = new TabPage();
+            headingTextControl5 = new HeadingTextControl();
             button13 = new Button();
             button12 = new Button();
             checkBox36 = new CheckBox();
@@ -193,6 +197,7 @@
             checkBox30 = new CheckBox();
             label40 = new Label();
             tabPage6 = new TabPage();
+            headingTextControl6 = new HeadingTextControl();
             label51 = new Label();
             checkBox43 = new CheckBox();
             checkBox42 = new CheckBox();
@@ -213,6 +218,7 @@
             label45 = new Label();
             label43 = new Label();
             tabPage7 = new TabPage();
+            headingTextControl7 = new HeadingTextControl();
             checkBox52 = new CheckBox();
             label55 = new Label();
             checkBox51 = new CheckBox();
@@ -226,6 +232,7 @@
             checkBox44 = new CheckBox();
             label52 = new Label();
             tabPage8 = new TabPage();
+            headingTextControl8 = new HeadingTextControl();
             label59 = new Label();
             pictureBox3 = new PictureBox();
             label58 = new Label();
@@ -233,6 +240,10 @@
             label56 = new Label();
             numericUpDown13 = new NumericUpDown();
             textBox14 = new TextBox();
+            tabPage9 = new TabPage();
+            checkBox56 = new CheckBox();
+            label2 = new Label();
+            headingTextControl9 = new HeadingTextControl();
             showDlgButton = new Button();
             button1 = new Button();
             label1 = new Label();
@@ -246,19 +257,12 @@
             pageSetupDialog1 = new PageSetupDialog();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printDialog1 = new PrintDialog();
-            printPreviewDialog1 = new PrintPreviewDialog();
             button11 = new Button();
             button14 = new Button();
             exportDlg = new SaveFileDialog();
             importDlg = new OpenFileDialog();
             button15 = new Button();
-            headingTextControl2 = new HeadingTextControl();
-            headingTextControl3 = new HeadingTextControl();
-            headingTextControl4 = new HeadingTextControl();
-            headingTextControl5 = new HeadingTextControl();
-            headingTextControl6 = new HeadingTextControl();
-            headingTextControl7 = new HeadingTextControl();
-            headingTextControl8 = new HeadingTextControl();
+            printPreviewDialog1 = new PrintPreviewDialog();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -293,6 +297,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown13).BeginInit();
+            tabPage9.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -306,6 +311,7 @@
             tabControl1.Controls.Add(tabPage6);
             tabControl1.Controls.Add(tabPage7);
             tabControl1.Controls.Add(tabPage8);
+            tabControl1.Controls.Add(tabPage9);
             tabControl1.Location = new Point(-1, 2);
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
@@ -826,6 +832,14 @@
             tabPage2.Tag = "taskdlg";
             tabPage2.Text = "Task Dialog";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // headingTextControl2
+            // 
+            headingTextControl2.Location = new Point(10, 9);
+            headingTextControl2.Name = "headingTextControl2";
+            headingTextControl2.Size = new Size(114, 23);
+            headingTextControl2.TabIndex = 28;
+            headingTextControl2.Text = "Task Dialog";
             // 
             // linkLabel3
             // 
@@ -1521,6 +1535,14 @@
             tabPage3.Text = "Color";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // headingTextControl3
+            // 
+            headingTextControl3.Location = new Point(15, 11);
+            headingTextControl3.Name = "headingTextControl3";
+            headingTextControl3.Size = new Size(114, 23);
+            headingTextControl3.TabIndex = 29;
+            headingTextControl3.Text = "Color";
+            // 
             // label29
             // 
             label29.Location = new Point(20, 261);
@@ -1655,6 +1677,14 @@
             tabPage4.Tag = "font";
             tabPage4.Text = "Font";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // headingTextControl4
+            // 
+            headingTextControl4.Location = new Point(14, 11);
+            headingTextControl4.Name = "headingTextControl4";
+            headingTextControl4.Size = new Size(114, 23);
+            headingTextControl4.TabIndex = 33;
+            headingTextControl4.Text = "Font";
             // 
             // checkBox29
             // 
@@ -1933,6 +1963,14 @@
             tabPage5.Text = "Folder";
             tabPage5.UseVisualStyleBackColor = true;
             // 
+            // headingTextControl5
+            // 
+            headingTextControl5.Location = new Point(14, 13);
+            headingTextControl5.Name = "headingTextControl5";
+            headingTextControl5.Size = new Size(114, 23);
+            headingTextControl5.TabIndex = 34;
+            headingTextControl5.Text = "Folder";
+            // 
             // button13
             // 
             button13.Location = new Point(202, 223);
@@ -2119,6 +2157,14 @@
             tabPage6.Tag = "pageset";
             tabPage6.Text = "Page Setup";
             tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // headingTextControl6
+            // 
+            headingTextControl6.Location = new Point(13, 10);
+            headingTextControl6.Name = "headingTextControl6";
+            headingTextControl6.Size = new Size(114, 23);
+            headingTextControl6.TabIndex = 35;
+            headingTextControl6.Text = "Page Setup";
             // 
             // label51
             // 
@@ -2333,6 +2379,14 @@
             tabPage7.Text = "Print";
             tabPage7.UseVisualStyleBackColor = true;
             // 
+            // headingTextControl7
+            // 
+            headingTextControl7.Location = new Point(13, 9);
+            headingTextControl7.Name = "headingTextControl7";
+            headingTextControl7.Size = new Size(114, 23);
+            headingTextControl7.TabIndex = 37;
+            headingTextControl7.Text = "Print";
+            // 
             // checkBox52
             // 
             checkBox52.AutoSize = true;
@@ -2479,6 +2533,14 @@
             tabPage8.Text = "Icon";
             tabPage8.UseVisualStyleBackColor = true;
             // 
+            // headingTextControl8
+            // 
+            headingTextControl8.Location = new Point(10, 6);
+            headingTextControl8.Name = "headingTextControl8";
+            headingTextControl8.Size = new Size(114, 23);
+            headingTextControl8.TabIndex = 38;
+            headingTextControl8.Text = "Icon";
+            // 
             // label59
             // 
             label59.AutoSize = true;
@@ -2541,6 +2603,46 @@
             textBox14.TabIndex = 19;
             textBox14.Text = "C:\\Windows\\System32\\shell32.dll";
             textBox14.TextChanged += textBox14_TextChanged;
+            // 
+            // tabPage9
+            // 
+            tabPage9.Controls.Add(checkBox56);
+            tabPage9.Controls.Add(label2);
+            tabPage9.Controls.Add(headingTextControl9);
+            tabPage9.Location = new Point(4, 24);
+            tabPage9.Name = "tabPage9";
+            tabPage9.Size = new Size(823, 419);
+            tabPage9.TabIndex = 8;
+            tabPage9.Tag = "printprevw";
+            tabPage9.Text = "Print Preview";
+            tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // checkBox56
+            // 
+            checkBox56.AutoSize = true;
+            checkBox56.Location = new Point(12, 80);
+            checkBox56.Name = "checkBox56";
+            checkBox56.Size = new Size(113, 19);
+            checkBox56.TabIndex = 5;
+            checkBox56.Text = "Use anti-aliasing";
+            checkBox56.UseVisualStyleBackColor = true;
+            checkBox56.CheckedChanged += checkBox56_CheckedChanged;
+            // 
+            // label2
+            // 
+            label2.Location = new Point(21, 41);
+            label2.Name = "label2";
+            label2.Size = new Size(232, 18);
+            label2.TabIndex = 4;
+            label2.Text = "Note: Windows Forms (WinForms) dialog.";
+            // 
+            // headingTextControl9
+            // 
+            headingTextControl9.Location = new Point(12, 10);
+            headingTextControl9.Name = "headingTextControl9";
+            headingTextControl9.Size = new Size(133, 23);
+            headingTextControl9.TabIndex = 0;
+            headingTextControl9.Text = "Print Preview";
             // 
             // showDlgButton
             // 
@@ -2637,16 +2739,6 @@
             printDialog1.Document = printDocument1;
             printDialog1.HelpRequest += printDialog1_HelpRequest;
             // 
-            // printPreviewDialog1
-            // 
-            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
-            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
-            printPreviewDialog1.ClientSize = new Size(400, 300);
-            printPreviewDialog1.Enabled = true;
-            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
-            printPreviewDialog1.Name = "printPreviewDialog1";
-            printPreviewDialog1.Visible = false;
-            // 
             // button11
             // 
             button11.Location = new Point(13, 506);
@@ -2692,61 +2784,16 @@
             button15.UseVisualStyleBackColor = true;
             button15.Click += button15_Click;
             // 
-            // headingTextControl2
+            // printPreviewDialog1
             // 
-            headingTextControl2.Location = new Point(10, 9);
-            headingTextControl2.Name = "headingTextControl2";
-            headingTextControl2.Size = new Size(114, 23);
-            headingTextControl2.TabIndex = 28;
-            headingTextControl2.Text = "Task Dialog";
-            // 
-            // headingTextControl3
-            // 
-            headingTextControl3.Location = new Point(15, 11);
-            headingTextControl3.Name = "headingTextControl3";
-            headingTextControl3.Size = new Size(114, 23);
-            headingTextControl3.TabIndex = 29;
-            headingTextControl3.Text = "Color";
-            // 
-            // headingTextControl4
-            // 
-            headingTextControl4.Location = new Point(14, 11);
-            headingTextControl4.Name = "headingTextControl4";
-            headingTextControl4.Size = new Size(114, 23);
-            headingTextControl4.TabIndex = 33;
-            headingTextControl4.Text = "Font";
-            // 
-            // headingTextControl5
-            // 
-            headingTextControl5.Location = new Point(14, 13);
-            headingTextControl5.Name = "headingTextControl5";
-            headingTextControl5.Size = new Size(114, 23);
-            headingTextControl5.TabIndex = 34;
-            headingTextControl5.Text = "Folder";
-            // 
-            // headingTextControl6
-            // 
-            headingTextControl6.Location = new Point(13, 10);
-            headingTextControl6.Name = "headingTextControl6";
-            headingTextControl6.Size = new Size(114, 23);
-            headingTextControl6.TabIndex = 35;
-            headingTextControl6.Text = "Page Setup";
-            // 
-            // headingTextControl7
-            // 
-            headingTextControl7.Location = new Point(13, 9);
-            headingTextControl7.Name = "headingTextControl7";
-            headingTextControl7.Size = new Size(114, 23);
-            headingTextControl7.TabIndex = 37;
-            headingTextControl7.Text = "Print";
-            // 
-            // headingTextControl8
-            // 
-            headingTextControl8.Location = new Point(10, 6);
-            headingTextControl8.Name = "headingTextControl8";
-            headingTextControl8.Size = new Size(114, 23);
-            headingTextControl8.TabIndex = 38;
-            headingTextControl8.Text = "Icon";
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
             // 
             // Form1
             // 
@@ -2819,6 +2866,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown13).EndInit();
+            tabPage9.ResumeLayout(false);
+            tabPage9.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2991,7 +3040,6 @@
         private CheckBox checkBox49;
         private CheckBox checkBox48;
         private CheckBox checkBox52;
-        private PrintPreviewDialog printPreviewDialog1;
         private TabPage tabPage8;
         private PictureBox pictureBox2;
         private Label label56;
@@ -3055,5 +3103,10 @@
         private HeadingTextControl headingTextControl6;
         private HeadingTextControl headingTextControl7;
         private HeadingTextControl headingTextControl8;
+        private TabPage tabPage9;
+        private HeadingTextControl headingTextControl9;
+        private CheckBox checkBox56;
+        private Label label2;
+        private PrintPreviewDialog printPreviewDialog1;
     }
 }
