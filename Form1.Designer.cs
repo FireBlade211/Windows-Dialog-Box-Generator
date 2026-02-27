@@ -31,30 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            groupBox3 = new GroupBox();
-            panel1 = new Panel();
-            radioButton23 = new RadioButton();
-            radioButton22 = new RadioButton();
-            radioButton21 = new RadioButton();
-            radioButton20 = new RadioButton();
-            radioButton14 = new RadioButton();
-            radioButton13 = new RadioButton();
-            radioButton12 = new RadioButton();
-            numericUpDown2 = new NumericUpDown();
-            radioButton11 = new RadioButton();
-            textBox2 = new TextBox();
-            radioButton10 = new RadioButton();
-            label9 = new Label();
             groupBox4 = new GroupBox();
-            label10 = new Label();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
-            button2 = new Button();
-            radioButton9 = new RadioButton();
-            msgBoxHelpFileTextBox = new TextBox();
-            label8 = new Label();
-            radioButton8 = new RadioButton();
+            numericUpDown2 = new NumericUpDown();
+            checkBox55 = new CheckBox();
             checkBox5 = new CheckBox();
+            checkBox54 = new CheckBox();
+            groupBox3 = new GroupBox();
+            radioButton10 = new RadioButton();
+            radioButton9 = new RadioButton();
+            radioButton8 = new RadioButton();
+            checkBox53 = new CheckBox();
+            label8 = new Label();
+            mbCultureCombo = new ComboBox();
+            label60 = new Label();
             label7 = new Label();
             checkBox4 = new CheckBox();
             checkBox3 = new CheckBox();
@@ -272,10 +261,9 @@
             button15 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            groupBox3.SuspendLayout();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -328,7 +316,12 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(groupBox4);
+            tabPage1.Controls.Add(checkBox54);
             tabPage1.Controls.Add(groupBox3);
+            tabPage1.Controls.Add(label8);
+            tabPage1.Controls.Add(mbCultureCombo);
+            tabPage1.Controls.Add(label60);
             tabPage1.Controls.Add(label7);
             tabPage1.Controls.Add(checkBox4);
             tabPage1.Controls.Add(checkBox3);
@@ -354,288 +347,149 @@
             tabPage1.Text = "Message Box";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // groupBox4
             // 
-            groupBox3.Controls.Add(panel1);
-            groupBox3.Controls.Add(textBox1);
-            groupBox3.Controls.Add(comboBox1);
-            groupBox3.Controls.Add(button2);
-            groupBox3.Controls.Add(radioButton9);
-            groupBox3.Controls.Add(msgBoxHelpFileTextBox);
-            groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(radioButton8);
-            groupBox3.Controls.Add(checkBox5);
-            groupBox3.Location = new Point(539, 3);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(276, 407);
-            groupBox3.TabIndex = 17;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Help";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(radioButton23);
-            panel1.Controls.Add(radioButton22);
-            panel1.Controls.Add(radioButton21);
-            panel1.Controls.Add(radioButton20);
-            panel1.Controls.Add(radioButton14);
-            panel1.Controls.Add(radioButton13);
-            panel1.Controls.Add(radioButton12);
-            panel1.Controls.Add(numericUpDown2);
-            panel1.Controls.Add(radioButton11);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(radioButton10);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(groupBox4);
-            panel1.Location = new Point(6, 154);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(268, 245);
-            panel1.TabIndex = 8;
-            panel1.Visible = false;
-            // 
-            // radioButton23
-            // 
-            radioButton23.AutoSize = true;
-            radioButton23.Location = new Point(75, 39);
-            radioButton23.Name = "radioButton23";
-            radioButton23.Size = new Size(53, 19);
-            radioButton23.TabIndex = 32;
-            radioButton23.Tag = "A single character.";
-            radioButton23.Text = "Char:";
-            radioButton23.UseVisualStyleBackColor = true;
-            radioButton23.CheckedChanged += radioButton10_CheckedChanged;
-            // 
-            // radioButton22
-            // 
-            radioButton22.AutoSize = true;
-            radioButton22.Location = new Point(167, 67);
-            radioButton22.Name = "radioButton22";
-            radioButton22.Size = new Size(63, 19);
-            radioButton22.TabIndex = 31;
-            radioButton22.Tag = "An unsigned, 64-bit integer (UInt64).";
-            radioButton22.Text = "ULong:";
-            radioButton22.UseVisualStyleBackColor = true;
-            radioButton22.CheckedChanged += radioButton10_CheckedChanged;
-            // 
-            // radioButton21
-            // 
-            radioButton21.AutoSize = true;
-            radioButton21.Location = new Point(136, 92);
-            radioButton21.Name = "radioButton21";
-            radioButton21.Size = new Size(55, 19);
-            radioButton21.TabIndex = 30;
-            radioButton21.Tag = "A signed, 64-bit integer. (Int64)";
-            radioButton21.Text = "Long:";
-            radioButton21.UseVisualStyleBackColor = true;
-            radioButton21.CheckedChanged += radioButton10_CheckedChanged;
-            // 
-            // radioButton20
-            // 
-            radioButton20.AutoSize = true;
-            radioButton20.Location = new Point(69, 92);
-            radioButton20.Name = "radioButton20";
-            radioButton20.Size = new Size(61, 19);
-            radioButton20.TabIndex = 29;
-            radioButton20.Tag = "An unsigned, 16-bit integer (UInt16).";
-            radioButton20.Text = "UShort";
-            radioButton20.UseVisualStyleBackColor = true;
-            radioButton20.CheckedChanged += radioButton10_CheckedChanged;
-            // 
-            // radioButton14
-            // 
-            radioButton14.AutoSize = true;
-            radioButton14.Location = new Point(10, 92);
-            radioButton14.Name = "radioButton14";
-            radioButton14.Size = new Size(53, 19);
-            radioButton14.TabIndex = 28;
-            radioButton14.Tag = "A signed, 16-bit integer (Int16).";
-            radioButton14.Text = "Short";
-            radioButton14.UseVisualStyleBackColor = true;
-            radioButton14.CheckedChanged += radioButton10_CheckedChanged;
-            // 
-            // radioButton13
-            // 
-            radioButton13.AutoSize = true;
-            radioButton13.Location = new Point(110, 67);
-            radioButton13.Name = "radioButton13";
-            radioButton13.Size = new Size(48, 19);
-            radioButton13.TabIndex = 27;
-            radioButton13.Tag = "A native-sized integer, useful for pointers for sharing accross P/Invoke. (IntPtr)";
-            radioButton13.Text = "Nint";
-            radioButton13.UseVisualStyleBackColor = true;
-            radioButton13.CheckedChanged += radioButton10_CheckedChanged;
-            // 
-            // radioButton12
-            // 
-            radioButton12.AutoSize = true;
-            radioButton12.Location = new Point(57, 67);
-            radioButton12.Name = "radioButton12";
-            radioButton12.Size = new Size(47, 19);
-            radioButton12.TabIndex = 26;
-            radioButton12.Tag = "An unsigned, 32-bit integer (UInt32).";
-            radioButton12.Text = "UInt";
-            radioButton12.UseVisualStyleBackColor = true;
-            radioButton12.CheckedChanged += radioButton10_CheckedChanged;
+            groupBox4.Controls.Add(numericUpDown2);
+            groupBox4.Controls.Add(checkBox55);
+            groupBox4.Controls.Add(checkBox5);
+            groupBox4.Location = new Point(542, 149);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(265, 91);
+            groupBox4.TabIndex = 23;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Help";
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(197, 92);
+            numericUpDown2.Location = new Point(126, 49);
+            numericUpDown2.Maximum = new decimal(new int[] { 268435455, 1042612833, 542101086, 0 });
+            numericUpDown2.Minimum = new decimal(new int[] { 268435455, 1042612833, 542101086, int.MinValue });
             numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(59, 23);
-            numericUpDown2.TabIndex = 25;
+            numericUpDown2.Size = new Size(85, 23);
+            numericUpDown2.TabIndex = 2;
             // 
-            // radioButton11
+            // checkBox55
             // 
-            radioButton11.AutoSize = true;
-            radioButton11.Location = new Point(9, 67);
-            radioButton11.Name = "radioButton11";
-            radioButton11.Size = new Size(39, 19);
-            radioButton11.TabIndex = 24;
-            radioButton11.Tag = "A signed, 32-bit integer (Int32).";
-            radioButton11.Text = "Int";
-            radioButton11.UseVisualStyleBackColor = true;
-            radioButton11.CheckedChanged += radioButton10_CheckedChanged;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(136, 37);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "String/char...";
-            textBox2.Size = new Size(125, 23);
-            textBox2.TabIndex = 23;
-            // 
-            // radioButton10
-            // 
-            radioButton10.AutoSize = true;
-            radioButton10.Checked = true;
-            radioButton10.Location = new Point(10, 38);
-            radioButton10.Name = "radioButton10";
-            radioButton10.Size = new Size(56, 19);
-            radioButton10.TabIndex = 22;
-            radioButton10.TabStop = true;
-            radioButton10.Tag = "A sequence of characters.";
-            radioButton10.Text = "String";
-            radioButton10.UseVisualStyleBackColor = true;
-            radioButton10.CheckedChanged += radioButton10_CheckedChanged;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(10, 13);
-            label9.Name = "label9";
-            label9.Size = new Size(90, 15);
-            label9.TabIndex = 21;
-            label9.Text = "Parameter: OLD";
-            // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(label10);
-            groupBox4.Location = new Point(8, 122);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(253, 110);
-            groupBox4.TabIndex = 33;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Type description";
-            // 
-            // label10
-            // 
-            label10.Location = new Point(8, 29);
-            label10.Name = "label10";
-            label10.Size = new Size(239, 68);
-            label10.TabIndex = 0;
-            label10.Text = "A sequence of characters.";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(96, 127);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Keyw&ord...";
-            textBox1.Size = new Size(166, 23);
-            textBox1.TabIndex = 7;
-            // 
-            // comboBox1
-            // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Topic", "Find", "Table of contents", "Topic ID", "Index", "Associate index", "Keyword index" });
-            comboBox1.Location = new Point(130, 100);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(132, 23);
-            comboBox1.TabIndex = 6;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(227, 72);
-            button2.Name = "button2";
-            button2.Size = new Size(35, 23);
-            button2.TabIndex = 5;
-            button2.Text = "&...";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // radioButton9
-            // 
-            radioButton9.AutoSize = true;
-            radioButton9.Location = new Point(10, 129);
-            radioButton9.Name = "radioButton9";
-            radioButton9.Size = new Size(80, 19);
-            radioButton9.TabIndex = 4;
-            radioButton9.Text = "&2 Keyword";
-            radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // msgBoxHelpFileTextBox
-            // 
-            msgBoxHelpFileTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            msgBoxHelpFileTextBox.AutoCompleteSource = AutoCompleteSource.FileSystem;
-            msgBoxHelpFileTextBox.Location = new Point(11, 71);
-            msgBoxHelpFileTextBox.Name = "msgBoxHelpFileTextBox";
-            msgBoxHelpFileTextBox.PlaceholderText = "*.chm; *.hlp...";
-            msgBoxHelpFileTextBox.Size = new Size(211, 23);
-            msgBoxHelpFileTextBox.TabIndex = 3;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(10, 53);
-            label8.Name = "label8";
-            label8.Size = new Size(81, 15);
-            label8.TabIndex = 2;
-            label8.Text = "Help file path:";
-            // 
-            // radioButton8
-            // 
-            radioButton8.AutoSize = true;
-            radioButton8.Checked = true;
-            radioButton8.Location = new Point(11, 102);
-            radioButton8.Name = "radioButton8";
-            radioButton8.Size = new Size(114, 19);
-            radioButton8.TabIndex = 1;
-            radioButton8.TabStop = true;
-            radioButton8.Text = "&1 Help Navigator";
-            radioButton8.UseVisualStyleBackColor = true;
+            checkBox55.AutoSize = true;
+            checkBox55.Location = new Point(8, 51);
+            checkBox55.Name = "checkBox55";
+            checkBox55.Size = new Size(111, 19);
+            checkBox55.TabIndex = 1;
+            checkBox55.Text = "Context help ID:";
+            checkBox55.UseVisualStyleBackColor = true;
             // 
             // checkBox5
             // 
             checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(11, 23);
+            checkBox5.Location = new Point(8, 25);
             checkBox5.Name = "checkBox5";
             checkBox5.Size = new Size(120, 19);
             checkBox5.TabIndex = 0;
             checkBox5.Text = "Show &help button";
             checkBox5.UseVisualStyleBackColor = true;
             // 
+            // checkBox54
+            // 
+            checkBox54.AutoSize = true;
+            checkBox54.Location = new Point(30, 358);
+            checkBox54.Name = "checkBox54";
+            checkBox54.Size = new Size(72, 19);
+            checkBox54.TabIndex = 3;
+            checkBox54.Text = "Topmost";
+            checkBox54.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(radioButton10);
+            groupBox3.Controls.Add(radioButton9);
+            groupBox3.Controls.Add(radioButton8);
+            groupBox3.Controls.Add(checkBox53);
+            groupBox3.Location = new Point(542, 3);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(265, 143);
+            groupBox3.TabIndex = 22;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Modality";
+            // 
+            // radioButton10
+            // 
+            radioButton10.AutoSize = true;
+            radioButton10.Location = new Point(11, 75);
+            radioButton10.Name = "radioButton10";
+            radioButton10.Size = new Size(100, 19);
+            radioButton10.TabIndex = 2;
+            radioButton10.Text = "System Modal";
+            radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // radioButton9
+            // 
+            radioButton9.AutoSize = true;
+            radioButton9.Location = new Point(11, 50);
+            radioButton9.Name = "radioButton9";
+            radioButton9.Size = new Size(84, 19);
+            radioButton9.TabIndex = 1;
+            radioButton9.Text = "Task Modal";
+            radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            radioButton8.AutoSize = true;
+            radioButton8.Checked = true;
+            radioButton8.Location = new Point(11, 25);
+            radioButton8.Name = "radioButton8";
+            radioButton8.Size = new Size(123, 19);
+            radioButton8.TabIndex = 0;
+            radioButton8.TabStop = true;
+            radioButton8.Text = "Application Modal";
+            radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox53
+            // 
+            checkBox53.AutoSize = true;
+            checkBox53.Location = new Point(10, 117);
+            checkBox53.Name = "checkBox53";
+            checkBox53.Size = new Size(105, 19);
+            checkBox53.TabIndex = 20;
+            checkBox53.Text = "Set foreground";
+            checkBox53.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(540, 38);
+            label8.Name = "label8";
+            label8.Size = new Size(0, 15);
+            label8.TabIndex = 21;
+            // 
+            // mbCultureCombo
+            // 
+            mbCultureCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            mbCultureCombo.Location = new Point(79, 207);
+            mbCultureCombo.Name = "mbCultureCombo";
+            mbCultureCombo.Size = new Size(148, 23);
+            mbCultureCombo.TabIndex = 19;
+            // 
+            // label60
+            // 
+            label60.AutoSize = true;
+            label60.Location = new Point(24, 210);
+            label60.Name = "label60";
+            label60.Size = new Size(49, 15);
+            label60.TabIndex = 18;
+            label60.Text = "&Culture:";
+            // 
             // label7
             // 
-            label7.Location = new Point(26, 375);
+            label7.Location = new Point(26, 383);
             label7.Name = "label7";
-            label7.Size = new Size(211, 35);
+            label7.Size = new Size(211, 34);
             label7.TabIndex = 16;
             label7.Text = "*Similar to Service Notification. Do not use for the same reasons.";
             // 
             // checkBox4
             // 
             checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(30, 348);
+            checkBox4.Location = new Point(30, 333);
             checkBox4.Name = "checkBox4";
             checkBox4.Size = new Size(143, 19);
             checkBox4.TabIndex = 15;
@@ -645,7 +499,7 @@
             // checkBox3
             // 
             checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(30, 323);
+            checkBox3.Location = new Point(30, 308);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new Size(85, 19);
             checkBox3.TabIndex = 14;
@@ -655,7 +509,7 @@
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
-            linkLabel2.Location = new Point(193, 299);
+            linkLabel2.Location = new Point(193, 284);
             linkLabel2.Name = "linkLabel2";
             linkLabel2.Size = new Size(18, 15);
             linkLabel2.TabIndex = 13;
@@ -666,7 +520,7 @@
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(30, 298);
+            checkBox2.Location = new Point(30, 283);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(157, 19);
             checkBox2.TabIndex = 12;
@@ -676,17 +530,17 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(30, 273);
+            checkBox1.Location = new Point(30, 258);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(90, 19);
+            checkBox1.Size = new Size(95, 19);
             checkBox1.TabIndex = 11;
-            checkBox1.Text = "RT&L Reading";
+            checkBox1.Text = "Right-to-&Left";
             checkBox1.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(27, 248);
+            label6.Location = new Point(27, 238);
             label6.Name = "label6";
             label6.Size = new Size(52, 15);
             label6.TabIndex = 10;
@@ -694,7 +548,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(27, 205);
+            numericUpDown1.Location = new Point(167, 177);
             numericUpDown1.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
@@ -705,7 +559,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(23, 180);
+            label5.Location = new Point(23, 179);
             label5.Name = "label5";
             label5.Size = new Size(87, 15);
             label5.TabIndex = 8;
@@ -897,7 +751,7 @@
             msgBoxCaptionBox.Location = new Point(23, 147);
             msgBoxCaptionBox.Name = "msgBoxCaptionBox";
             msgBoxCaptionBox.PlaceholderText = "Default: Error";
-            msgBoxCaptionBox.Size = new Size(171, 23);
+            msgBoxCaptionBox.Size = new Size(204, 23);
             msgBoxCaptionBox.TabIndex = 4;
             // 
             // label4
@@ -2941,12 +2795,11 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -2997,65 +2850,11 @@
         #endregion
 
         private TabControl tabControl1;
-        private TabPage tabPage1;
         private TabPage tabPage2;
         private Button showDlgButton;
         private Button button1;
-        private Label label2;
         private Label label1;
-        private TextBox msgBoxCaptionBox;
-        private Label label4;
-        private TextBox msgBoxTextBox;
-        private Label label3;
-        private GroupBox groupBox1;
-        private RadioButton radioButton1;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton4;
-        private RadioButton radioButton5;
-        private RadioButton radioButton7;
-        private RadioButton radioButton6;
-        private GroupBox groupBox2;
-        private LinkLabel linkLabel1;
-        private RadioButton radioButton18;
-        private RadioButton radioButton17;
-        private RadioButton radioButton16;
-        private RadioButton radioButton15;
-        private RadioButton radioButton19;
-        private NumericUpDown numericUpDown1;
-        private Label label5;
-        private CheckBox checkBox1;
-        private Label label6;
-        private CheckBox checkBox2;
-        private LinkLabel linkLabel2;
-        private CheckBox checkBox3;
-        private GroupBox groupBox3;
-        private CheckBox checkBox5;
-        private Label label7;
-        private CheckBox checkBox4;
-        private RadioButton radioButton8;
-        private Button button2;
-        private RadioButton radioButton9;
-        private TextBox msgBoxHelpFileTextBox;
-        private Label label8;
         private OpenFileDialog helpFileDialog;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
-        private Panel panel1;
-        private RadioButton radioButton23;
-        private RadioButton radioButton22;
-        private RadioButton radioButton21;
-        private RadioButton radioButton20;
-        private RadioButton radioButton14;
-        private RadioButton radioButton13;
-        private RadioButton radioButton12;
-        private NumericUpDown numericUpDown2;
-        private RadioButton radioButton11;
-        private TextBox textBox2;
-        private RadioButton radioButton10;
-        private Label label9;
-        private GroupBox groupBox4;
-        private Label label10;
         private TextBox OutputLogsBox;
         private Label label11;
         private Button button3;
@@ -3237,5 +3036,48 @@
         private SaveFileDialog exportDlg;
         private OpenFileDialog importDlg;
         private Button button15;
+        private TabPage tabPage1;
+        private GroupBox groupBox3;
+        private Label label8;
+        private CheckBox checkBox53;
+        private CheckBox checkBox5;
+        private ComboBox mbCultureCombo;
+        private Label label60;
+        private Label label7;
+        private CheckBox checkBox4;
+        private CheckBox checkBox3;
+        private LinkLabel linkLabel2;
+        private CheckBox checkBox2;
+        private CheckBox checkBox1;
+        private Label label6;
+        private NumericUpDown numericUpDown1;
+        private Label label5;
+        private GroupBox groupBox2;
+        private RadioButton radioButton19;
+        private LinkLabel linkLabel1;
+        private RadioButton radioButton18;
+        private RadioButton radioButton17;
+        private RadioButton radioButton16;
+        private RadioButton radioButton15;
+        private GroupBox groupBox1;
+        private RadioButton radioButton7;
+        private RadioButton radioButton6;
+        private RadioButton radioButton5;
+        private RadioButton radioButton4;
+        private RadioButton radioButton3;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
+        private TextBox msgBoxCaptionBox;
+        private Label label4;
+        private TextBox msgBoxTextBox;
+        private Label label3;
+        private Label label2;
+        private RadioButton radioButton10;
+        private RadioButton radioButton9;
+        private RadioButton radioButton8;
+        private CheckBox checkBox54;
+        private GroupBox groupBox4;
+        private CheckBox checkBox55;
+        private NumericUpDown numericUpDown2;
     }
 }

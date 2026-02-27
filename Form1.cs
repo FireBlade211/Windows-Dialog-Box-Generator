@@ -1,7 +1,9 @@
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using FireBlade.WinInteropUtils;
+using FireBlade.WinInteropUtils.Dialogs;
+using System.Diagnostics;
 using System.Drawing.Printing;
+using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace Windows_Dialog_Box_Generator
@@ -20,7 +22,7 @@ namespace Windows_Dialog_Box_Generator
         {
             InitializeComponent();
 
-            comboBox1.SelectedIndex = 0;
+            //comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
             comboBox3.SelectedIndex = 0;
             taskDlg_iconPath = GetImageresPath();
@@ -46,6 +48,11 @@ namespace Windows_Dialog_Box_Generator
             comboBox4.Items.AddRange([.. Enum.GetValues<Environment.SpecialFolder>().Select(f => (SpecialFolderComboBoxItem)f)]);
 
             IconDlgUpdateDefaultIconPreview();
+
+            mbCultureCombo.Items.AddRange(CultureInfo.GetCultures(CultureTypes.AllCultures).Select(c => new CultureComboBoxItem
+            {
+                Culture = c
+            }).ToArray());
         }
 
         private string GetImageresPath()
@@ -129,128 +136,129 @@ namespace Windows_Dialog_Box_Generator
         {
             if (helpFileDialog.ShowDialog() == DialogResult.OK)
             {
-                msgBoxHelpFileTextBox.Text = helpFileDialog.FileName;
+                //msgBoxHelpFileTextBox.Text = helpFileDialog.FileName;
             }
         }
 
         private void radioButton10_CheckedChanged(object sender, EventArgs e)
         {
             Debug.WriteLine("Checked changed!");
-            label10.Text = UIHelper.GetCheckedRadioButton(panel1)?.Tag?.ToString() ?? string.Empty;
+            //label10.Text = UIHelper.GetCheckedRadioButton(panel1)?.Tag?.ToString() ?? string.Empty;
 
-            numericUpDown2.Maximum = UIHelper.GetCheckedRadioButton(panel1)?.Name switch
-            {
-                "radioButton11" => int.MaxValue,
-                "radioButton12" => uint.MaxValue,
-                "radioButton13" => nint.MaxValue,
-                "radioButton22" => ulong.MaxValue,
-                "radioButton14" => short.MaxValue,
-                "radioButton20" => ushort.MaxValue,
-                "radioButton21" => long.MaxValue,
-                // This should technically be first, but it needs to be put last because of the _
-                "radioButton10" or "radioButton23" or _ => 10000000000000000000,
-            };
+            //numericUpDown2.Maximum = UIHelper.GetCheckedRadioButton(panel1)?.Name switch
+            //{
+            //    "radioButton11" => int.MaxValue,
+            //    "radioButton12" => uint.MaxValue,
+            //    "radioButton13" => nint.MaxValue,
+            //    "radioButton22" => ulong.MaxValue,
+            //    "radioButton14" => short.MaxValue,
+            //    "radioButton20" => ushort.MaxValue,
+            //    "radioButton21" => long.MaxValue,
+            //    // This should technically be first, but it needs to be put last because of the _
+            //    "radioButton10" or "radioButton23" or _ => 10000000000000000000,
+            //};
 
-            numericUpDown2.Minimum = UIHelper.GetCheckedRadioButton(panel1)?.Name switch
-            {
-                "radioButton11" => int.MinValue,
-                "radioButton12" => uint.MinValue,
-                "radioButton13" => nint.MinValue,
-                "radioButton22" => ulong.MinValue,
-                "radioButton14" => short.MinValue,
-                "radioButton20" => ushort.MinValue,
-                "radioButton21" => long.MinValue,
-                "radioButton10" or "radioButton23" or _ => 0,
-            };
+            //numericUpDown2.Minimum = UIHelper.GetCheckedRadioButton(panel1)?.Name switch
+            //{
+            //    "radioButton11" => int.MinValue,
+            //    "radioButton12" => uint.MinValue,
+            //    "radioButton13" => nint.MinValue,
+            //    "radioButton22" => ulong.MinValue,
+            //    "radioButton14" => short.MinValue,
+            //    "radioButton20" => ushort.MinValue,
+            //    "radioButton21" => long.MinValue,
+            //    "radioButton10" or "radioButton23" or _ => 0,
+            //};
         }
 
-        private MessageBoxButtons MsgBoxGetButtons()
+        private WinMessageBoxButtons MsgBoxGetButtons()
         {
             return UIHelper.GetCheckedRadioButton(groupBox1)?.Tag?.ToString() switch
             {
-                "o" => MessageBoxButtons.OK,
-                "oc" => MessageBoxButtons.OKCancel,
-                "rc" => MessageBoxButtons.RetryCancel,
-                "ctc" => MessageBoxButtons.CancelTryContinue,
-                "ari" => MessageBoxButtons.AbortRetryIgnore,
-                "yn" => MessageBoxButtons.YesNo,
-                "ync" => MessageBoxButtons.YesNoCancel,
-                _ => MessageBoxButtons.OK // Could've been merged with "o" ("o" or _ => MessageBoxButtons.OK), but this keeps it ordered
+                "o" => WinMessageBoxButtons.Ok,
+                "oc" => WinMessageBoxButtons.OkCancel,
+                "rc" => WinMessageBoxButtons.RetryCancel,
+                "ctc" => WinMessageBoxButtons.CancelRetryContinue,
+                "ari" => WinMessageBoxButtons.AbortRetryIgnore,
+                "yn" => WinMessageBoxButtons.YesNo,
+                "ync" => WinMessageBoxButtons.YesNoCancel,
+                _ => WinMessageBoxButtons.Ok // Could've been merged with "o" ("o" or _ => MessageBoxButtons.OK), but this keeps it ordered
             };
         }
 
-        private MessageBoxIcon MsgBoxGetIcon()
+        private WinMessageBoxIcon MsgBoxGetIcon()
         {
+#pragma warning disable CS0618
             return UIHelper.GetCheckedRadioButton(groupBox2)?.Tag?.ToString() switch
             {
-                "n" => MessageBoxIcon.None,
-                "i" => MessageBoxIcon.Information,
-                "w" => MessageBoxIcon.Warning,
-                "e" => MessageBoxIcon.Error,
-                "q" => MessageBoxIcon.Question,
-                _ => MessageBoxIcon.None
+                "n" => WinMessageBoxIcon.None,
+                "i" => WinMessageBoxIcon.Information,
+                "w" => WinMessageBoxIcon.Warning,
+                "e" => WinMessageBoxIcon.Error,
+                "q" => WinMessageBoxIcon.Question,
+                _ => WinMessageBoxIcon.None
             };
+#pragma warning restore
         }
 
-        private MessageBoxDefaultButton MsgBoxGetDefaultButton()
+        //private WinMessageBoxOptions MsgBoxGetOptions()
+        //{
+        //    MessageBoxOptions options = 0;
+
+        //    if (checkBox1.Checked)
+        //    {
+        //        options |= MessageBoxOptions.RtlReading;
+        //    }
+
+        //    if (checkBox2.Checked)
+        //    {
+        //        options |= MessageBoxOptions.ServiceNotification;
+        //    }
+
+        //    if (checkBox3.Checked)
+        //    {
+        //        options |= MessageBoxOptions.RightAlign;
+        //    }
+
+        //    if (checkBox4.Checked)
+        //    {
+        //        options |= MessageBoxOptions.DefaultDesktopOnly;
+        //    }
+
+        //    return options;
+        //}
+
+        //private HelpNavigator MsgBoxGetHelpNavigator()
+        //{
+        //    // Topic
+        //    // Find
+        //    // Table of contents
+        //    // Topic ID
+        //    // Index
+        //    // Associate index
+        //    // Keyword index
+
+        //    return comboBox1.SelectedIndex switch
+        //    {
+        //        0 => HelpNavigator.Topic,
+        //        1 => HelpNavigator.Find,
+        //        2 => HelpNavigator.TableOfContents,
+        //        3 => HelpNavigator.TopicId,
+        //        4 => HelpNavigator.Index,
+        //        5 => HelpNavigator.AssociateIndex,
+        //        6 => HelpNavigator.KeywordIndex,
+        //        _ => HelpNavigator.Topic
+        //    };
+        //}
+
+        private WinMessageBoxModality MsgBoxGetModality()
         {
-            var str = "Button" + numericUpDown1.Value.ToString(); // The NumericUpDown accepts 1-4 range
-
-            if (Enum.TryParse(str, out MessageBoxDefaultButton result))
+            return UIHelper.GetCheckedRadioButton(groupBox3)?.Name switch
             {
-                return result;
-            }
-
-            return MessageBoxDefaultButton.Button1;
-        }
-
-        private MessageBoxOptions MsgBoxGetOptions()
-        {
-            MessageBoxOptions options = 0;
-
-            if (checkBox1.Checked)
-            {
-                options |= MessageBoxOptions.RtlReading;
-            }
-
-            if (checkBox2.Checked)
-            {
-                options |= MessageBoxOptions.ServiceNotification;
-            }
-
-            if (checkBox3.Checked)
-            {
-                options |= MessageBoxOptions.RightAlign;
-            }
-
-            if (checkBox4.Checked)
-            {
-                options |= MessageBoxOptions.DefaultDesktopOnly;
-            }
-
-            return options;
-        }
-
-        private HelpNavigator MsgBoxGetHelpNavigator()
-        {
-            // Topic
-            // Find
-            // Table of contents
-            // Topic ID
-            // Index
-            // Associate index
-            // Keyword index
-
-            return comboBox1.SelectedIndex switch
-            {
-                0 => HelpNavigator.Topic,
-                1 => HelpNavigator.Find,
-                2 => HelpNavigator.TableOfContents,
-                3 => HelpNavigator.TopicId,
-                4 => HelpNavigator.Index,
-                5 => HelpNavigator.AssociateIndex,
-                6 => HelpNavigator.KeywordIndex,
-                _ => HelpNavigator.Topic
+                "radioButton8" => WinMessageBoxModality.ApplicationModal,
+                "radioButton9" => WinMessageBoxModality.TaskModal,
+                "radioButton10" => WinMessageBoxModality.SystemModal,
+                _ => WinMessageBoxModality.ApplicationModal
             };
         }
 
@@ -311,39 +319,68 @@ namespace Windows_Dialog_Box_Generator
                 {
                     case "msgbox":
                         {
-                            DialogResult result;
+                            //DialogResult result;
 
-                            if (checkBox5.Checked)
+                            //if (checkBox5.Checked)
+                            //{
+                            //    if (!File.Exists(msgBoxHelpFileTextBox.Text))
+                            //    {
+                            //        DialogResult r = MessageBox.Show($"Warning: The help file '{msgBoxHelpFileTextBox.Text}' doesn't exist. Continuing can lead to weird," +
+                            //            $" undefined behavior and crashes. Are you sure you want to" +
+                            //            $" continue?", "File not found warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                            //        if (r != DialogResult.OK)
+                            //        {
+                            //            return;
+                            //        }
+                            //    }
+
+                            //    if (radioButton8.Checked)
+                            //    {
+                            //        result = MessageBox.Show(msgBoxTextBox.Text, !string.IsNullOrEmpty(msgBoxCaptionBox.Text) ? msgBoxCaptionBox.Text : null, MsgBoxGetButtons(),
+                            //            MsgBoxGetIcon(), MsgBoxGetDefaultButton(), MsgBoxGetOptions(), msgBoxHelpFileTextBox.Text, MsgBoxGetHelpNavigator());
+                            //    }
+                            //    else
+                            //    {
+                            //        result = MessageBox.Show(msgBoxTextBox.Text, !string.IsNullOrEmpty(msgBoxCaptionBox.Text) ? msgBoxCaptionBox.Text : null, MsgBoxGetButtons(),
+                            //            MsgBoxGetIcon(), MsgBoxGetDefaultButton(), MsgBoxGetOptions(), msgBoxHelpFileTextBox.Text, textBox1.Text);
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    result = MessageBox.Show(msgBoxTextBox.Text, !string.IsNullOrEmpty(msgBoxCaptionBox.Text) ? msgBoxCaptionBox.Text : null, MsgBoxGetButtons(),
+                            //        MsgBoxGetIcon(), MsgBoxGetDefaultButton(), MsgBoxGetOptions());
+                            //}
+
+                            var mb = new WinMessageBox
                             {
-                                if (!File.Exists(msgBoxHelpFileTextBox.Text))
-                                {
-                                    DialogResult r = MessageBox.Show($"Warning: The help file '{msgBoxHelpFileTextBox.Text}' doesn't exist. Continuing can lead to weird," +
-                                        $" undefined behavior and crashes. Are you sure you want to" +
-                                        $" continue?", "File not found warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                                Text = msgBoxTextBox.Text,
+                                Caption = string.IsNullOrEmpty(msgBoxCaptionBox.Text) ? null : msgBoxCaptionBox.Text,
+                                Culture = (mbCultureCombo.SelectedItem as CultureComboBoxItem)?.Culture,
+                                DefaultButton = (int)numericUpDown1.Value,
+                                SetForeground = checkBox53.Checked,
+                                RightAlign = checkBox3.Checked,
+                                Buttons = MsgBoxGetButtons(),
+                                DefaultDesktopOnly = checkBox4.Checked,
+                                Icon = MsgBoxGetIcon(),
+                                Modality = MsgBoxGetModality(),
+                                RightToLeft = checkBox1.Checked,
+                                ServiceNotification = checkBox2.Checked,
+                                ShowHelp = checkBox5.Checked,
+                                TopMost = checkBox54.Checked,
+                                ContextHelpId = checkBox55.Checked ? (nuint)numericUpDown2.Value : null
+                            };
 
-                                    if (r != DialogResult.OK)
-                                    {
-                                        return;
-                                    }
-                                }
-
-                                if (radioButton8.Checked)
-                                {
-                                    result = MessageBox.Show(msgBoxTextBox.Text, !string.IsNullOrEmpty(msgBoxCaptionBox.Text) ? msgBoxCaptionBox.Text : null, MsgBoxGetButtons(),
-                                        MsgBoxGetIcon(), MsgBoxGetDefaultButton(), MsgBoxGetOptions(), msgBoxHelpFileTextBox.Text, MsgBoxGetHelpNavigator());
-                                }
-                                else
-                                {
-                                    result = MessageBox.Show(msgBoxTextBox.Text, !string.IsNullOrEmpty(msgBoxCaptionBox.Text) ? msgBoxCaptionBox.Text : null, MsgBoxGetButtons(),
-                                        MsgBoxGetIcon(), MsgBoxGetDefaultButton(), MsgBoxGetOptions(), msgBoxHelpFileTextBox.Text, textBox1.Text);
-                                }
-                            }
-                            else
+                            mb.OnHelp += (s, e) =>
                             {
-                                result = MessageBox.Show(msgBoxTextBox.Text, !string.IsNullOrEmpty(msgBoxCaptionBox.Text) ? msgBoxCaptionBox.Text : null, MsgBoxGetButtons(),
-                                    MsgBoxGetIcon(), MsgBoxGetDefaultButton(), MsgBoxGetOptions());
+                                OutputLogsBox.Text += $"Help requested at mouse position {e.MousePos} with help context ID: {e.ContextId}\r\n";
+                            };
+
+                            if (Window.FromHandle(Handle) is Window wnd)
+                            {
+                                var result = mb.Show(wnd);
+                                OutputLogsBox.Text += $"Message box result: {result}\r\n";
                             }
-                            OutputLogsBox.Text += $"Message box result: {result}\r\n";
 
                             break;
                         }
@@ -386,17 +423,17 @@ namespace Windows_Dialog_Box_Generator
                                             // We do NOT use the negative of the ID, since the API is doing other stuff with the ID and handles it automatically
                                             Window.FromHandle(hwnd)?.SendMessage((uint)TDM.UPDATE_ICON, nuint.Zero,
                                                 new nint(UIHelper.GetCheckedRadioButton(groupBox6)?.Name switch
-                                            {
-                                                "radioButton25" => 81,
-                                                "radioButton26" => 84,
-                                                "radioButton27" => 98,
-                                                "radioButton28" or "radioButton29" or "radioButton30" => 78,
-                                                "radioButton31" => 106,
-                                                "radioButton32" => 107,
-                                                "radioButton33" => 105,
-                                                "radioButton34" => new IconIndexMapper(taskDlg_iconPath).GetResourceIdFromPickIconIndex(taskDlg_iconIndex) - 2, // Since we already know the icon is from imageres, we can do this
-                                                _ => 89
-                                            }));
+                                                {
+                                                    "radioButton25" => 81,
+                                                    "radioButton26" => 84,
+                                                    "radioButton27" => 98,
+                                                    "radioButton28" or "radioButton29" or "radioButton30" => 78,
+                                                    "radioButton31" => 106,
+                                                    "radioButton32" => 107,
+                                                    "radioButton33" => 105,
+                                                    "radioButton34" => new IconIndexMapper(taskDlg_iconPath).GetResourceIdFromPickIconIndex(taskDlg_iconIndex) - 2, // Since we already know the icon is from imageres, we can do this
+                                                    _ => 89
+                                                }));
                                         }
                                         catch (Exception ex)
                                         {
@@ -1158,6 +1195,7 @@ namespace Windows_Dialog_Box_Generator
                             case "msgbox":
                                 {
                                     writer.WriteStartElement("MessageBox");
+                                    writer.WriteAttributeString("Version", "2");
 
                                     writer.WriteElementString("Text", msgBoxTextBox.Text);
                                     writer.WriteElementString("Caption", msgBoxCaptionBox.Text);
@@ -1165,29 +1203,40 @@ namespace Windows_Dialog_Box_Generator
 
                                     writer.WriteStartElement("MessageBoxOptions");
 
-                                    writer.WriteElementString("RtlReading", checkBox1.Checked.ToString().ToLowerInvariant());
+                                    writer.WriteElementString("Rtl", checkBox1.Checked.ToString().ToLowerInvariant());
                                     writer.WriteElementString("ServiceNotification", checkBox2.Checked.ToString().ToLowerInvariant());
                                     writer.WriteElementString("RightAlign", checkBox3.Checked.ToString().ToLowerInvariant());
                                     writer.WriteElementString("DefaultDesktopOnly", checkBox4.Checked.ToString().ToLowerInvariant());
+                                    writer.WriteElementString("TopMost", checkBox54.Checked.ToString().ToLowerInvariant());
 
                                     writer.WriteEndElement();
 
                                     writer.WriteElementString("Buttons", MsgBoxGetButtons().ToString()); // e.g, AbortRetryIgnore
                                     writer.WriteElementString("Icon", MsgBoxGetIcon().ToString()); // e.g, Warning, Error, ...
 
+                                    writer.WriteStartElement("Modality");
+
+                                    writer.WriteElementString("Modality", MsgBoxGetModality().ToString());
+                                    writer.WriteElementString("SetForeground", checkBox53.Checked.ToString().ToLowerInvariant());
+
+                                    writer.WriteEndElement();
+
                                     writer.WriteStartElement("Help");
 
                                     writer.WriteElementString("ShowHelp", checkBox5.Checked.ToString().ToLowerInvariant());
-                                    writer.WriteElementString("HelpPath", msgBoxHelpFileTextBox.Text);
+                                    //writer.WriteElementString("HelpPath", msgBoxHelpFileTextBox.Text);
 
-                                    if (radioButton8.Checked)
-                                    {
-                                        writer.WriteElementString("HelpNavigator", MsgBoxGetHelpNavigator().ToString());
-                                    }
-                                    else
-                                    {
-                                        writer.WriteElementString("Keyword", textBox1.Text);
-                                    }
+                                    //if (radioButton8.Checked)
+                                    //{
+                                    //    writer.WriteElementString("HelpNavigator", MsgBoxGetHelpNavigator().ToString());
+                                    //}
+                                    //else
+                                    //{
+                                    //    writer.WriteElementString("Keyword", textBox1.Text);
+                                    //}
+
+                                    if (checkBox55.Checked)
+                                        writer.WriteElementString("ContextHelpId", numericUpDown2.Value.ToString());
 
                                     writer.WriteEndElement();
 
@@ -1371,6 +1420,15 @@ namespace Windows_Dialog_Box_Generator
                                 case "MessageBox":
                                     {
                                         tabControl1.SelectTab(0);
+
+                                        string? versionAttr = reader.GetAttribute("Version");
+                                        int version = 1; // default for legacy files
+
+                                        if (!string.IsNullOrEmpty(versionAttr))
+                                        {
+                                            _ = int.TryParse(versionAttr, out version);
+                                        }
+
                                         reader.ReadStartElement("MessageBox");
 
                                         msgBoxTextBox.Text = reader.ReadElementContentAsString("Text", string.Empty);
@@ -1379,10 +1437,17 @@ namespace Windows_Dialog_Box_Generator
 
                                         reader.ReadStartElement("MessageBoxOptions");
 
-                                        checkBox1.Checked = reader.ReadElementContentAsBoolean("RtlReading", string.Empty);
+                                        if (version == 2)
+                                            checkBox1.Checked = reader.ReadElementContentAsBoolean("Rtl", string.Empty);
+                                        else
+                                            checkBox1.Checked = reader.ReadElementContentAsBoolean("RtlReading", string.Empty);
+
                                         checkBox2.Checked = reader.ReadElementContentAsBoolean("ServiceNotification", string.Empty);
                                         checkBox3.Checked = reader.ReadElementContentAsBoolean("RightAlign", string.Empty);
                                         checkBox4.Checked = reader.ReadElementContentAsBoolean("DefaultDesktopOnly", string.Empty);
+
+                                        if (version == 2)
+                                            checkBox54.Checked = reader.ReadElementContentAsBoolean("TopMost", string.Empty);
 
                                         reader.ReadEndElement();
 
@@ -1408,32 +1473,40 @@ namespace Windows_Dialog_Box_Generator
                                             _ => radioButton19
                                         });
 
+                                        if (version == 2)
+                                        {
+                                            reader.ReadStartElement("Modality");
+
+                                            UIHelper.SetCheckedRadioButton(reader.ReadElementContentAsString("Modality", string.Empty).ToLowerInvariant() switch
+                                            {
+                                                "applicationmodal" => radioButton8,
+                                                "taskmodal" => radioButton9,
+                                                "systemmodal" => radioButton10,
+                                                _ => radioButton8
+                                            });
+
+                                            checkBox53.Checked = reader.ReadElementContentAsBoolean("SetForeground", string.Empty);
+
+                                            reader.ReadEndElement();
+                                        }
+
                                         reader.ReadStartElement("Help");
 
                                         checkBox5.Checked = reader.ReadElementContentAsBoolean("ShowHelp", string.Empty);
-                                        msgBoxHelpFileTextBox.Text = reader.ReadElementContentAsString("HelpPath", string.Empty);
 
-                                        if (reader.IsStartElement("HelpNavigator"))
+                                        if (version == 1)
                                         {
-                                            UIHelper.SetCheckedRadioButton(radioButton8);
+                                            reader.ReadElementContentAsString("HelpPath", string.Empty);
 
-                                            comboBox1.SelectedIndex = reader.ReadElementContentAsString().ToLowerInvariant() switch
-                                            {
-                                                "topic" => 0,
-                                                "find" => 1,
-                                                "tableofcontents" => 2,
-                                                "topicid" => 3,
-                                                "index" => 4,
-                                                "associateindex" => 5,
-                                                "keywordindex" => 6,
-                                                _ => -1
-                                            };
+                                            reader.ReadElementContentAsString();
                                         }
-                                        else if (reader.IsStartElement("Keyword"))
+                                        else
                                         {
-                                            UIHelper.SetCheckedRadioButton(radioButton9);
-
-                                            textBox1.Text = reader.ReadElementContentAsString();
+                                            if (reader.IsStartElement("ContextHelpId"))
+                                            {
+                                                numericUpDown2.Value = reader.ReadElementContentAsInt();
+                                                checkBox55.Checked = true;
+                                            }
                                         }
 
                                         reader.ReadEndElement();
@@ -1680,5 +1753,12 @@ namespace Windows_Dialog_Box_Generator
         {
             return new SpecialFolderComboBoxItem(f);
         }
+    }
+
+    public class CultureComboBoxItem
+    {
+        public CultureInfo Culture { get; set; } = CultureInfo.CurrentCulture;
+
+        public override string ToString() => Culture.TextInfo.ToTitleCase(Culture.NativeName);
     }
 }
