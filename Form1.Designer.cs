@@ -2797,7 +2797,7 @@
             label1.Name = "label1";
             label1.Size = new Size(63, 15);
             label1.TabIndex = 3;
-            label1.Text = "Version 1.0";
+            label1.Text = "Version 1.1";
             // 
             // helpFileDialog
             // 
@@ -2937,7 +2937,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Form1";
-            Text = "Windows Dialog Box Generator v1.0";
+            Text = "Windows Dialog Box Generator v1.1";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();

@@ -1647,7 +1647,7 @@ namespace Windows_Dialog_Box_Generator
 
         private void button15_Click(object sender, EventArgs e)
         {
-            Shell32.ShellAbout(Handle, "Windows Dialog Box Generator", "You are running Windows Dialog Box Generator v1.0.", Icon);
+            Shell32.ShellAbout(Handle, "Windows Dialog Box Generator", "You are running Windows Dialog Box Generator v1.1.", Icon);
         }
     }
 
