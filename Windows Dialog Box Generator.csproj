@@ -10,10 +10,19 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
     <Version>1.2.0</Version>
+    <UseWPF>True</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SplashScreen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Resources\logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="SplashScreen.png" />
   </ItemGroup>
 
   <ItemGroup>

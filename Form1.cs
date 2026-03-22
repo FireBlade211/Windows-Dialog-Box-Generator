@@ -3,7 +3,7 @@ using FireBlade.WinInteropUtils.Dialogs;
 using System.Diagnostics;
 using System.Drawing.Printing;
 using System.Globalization;
-using System.Text.RegularExpressions;
+using System.IO;
 using System.Xml;
 
 namespace Windows_Dialog_Box_Generator
