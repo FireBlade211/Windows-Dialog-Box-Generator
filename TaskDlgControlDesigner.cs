@@ -146,6 +146,8 @@
                 }
             }
 
+            button6.Enabled = false;
+
             RefreshList();
         }
 
