@@ -2,6 +2,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![GitHub Tag](https://img.shields.io/github/v/tag/FireBlade211/Windows-Dialog-Box-Generator?label=Version)](https://github.com/FireBlade211/Windows-Dialog-Box-Generator/releases)<br>
 An app that can generate message boxes, task dialogs, and other common commdlg32.dll Windows dialogs with a lot of customization.
 
+# Screenshot
+![Screenshot of Windows Dialog Box Generator](readme-screenshot.png)
+
 # Installation
 Go to the [Releases](https://github.com/FireBlade211/Windows-Dialog-Box-Generator/releases) page, download the latest ZIP file, extract it, and run the executable inside.
 You may wonder why there are 2 zip files available for download:
