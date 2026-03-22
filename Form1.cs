@@ -1391,6 +1391,29 @@ namespace Windows_Dialog_Box_Generator
                                     writer.WriteEndElement();
                                     break;
                                 }
+                            case "col":
+                                {
+                                    writer.WriteStartElement("CommonColorDialog");
+
+                                    var c = panel2.BackColor;
+                                    writer.WriteElementString("StartColor", $"{c.R:X2}{c.G:X2}{c.B:X2}");
+
+                                    writer.WriteElementString("CustomColorOpenState", checkBox16.CheckState switch
+                                    {
+                                        CheckState.Checked => "Always",
+                                        CheckState.Indeterminate => "User",
+                                        CheckState.Unchecked => "Never",
+                                        _ => "User"
+                                    });
+
+                                    writer.WriteElementString("ShowHelp", checkBox18.Checked.ToString().ToLowerInvariant());
+                                    writer.WriteElementString("HideNonSolidColors", checkBox19.Checked.ToString().ToLowerInvariant());
+                                    writer.WriteElementString("AllSwatchesVisible", checkBox17.Checked.ToString().ToLowerInvariant());
+
+                                    writer.WriteEndElement();
+
+                                    break;
+                                }
                             default:
                                 wasSerializerFound = false;
                                 MessageBox.Show("A serializer wasn't found for this dialog. This means that Windows Dialog Box Generator can't load or save a dialog of this type.",
@@ -1705,6 +1728,36 @@ namespace Windows_Dialog_Box_Generator
                                     reader.ReadEndElement();
 
                                     break;
+                                case "CommonColorDialog":
+                                    {
+                                        tabControl1.SelectTab(2);
+
+                                        reader.ReadStartElement("CommonColorDialog");
+
+                                        var hex = reader.ReadElementContentAsString("StartColor", string.Empty);
+                                        var c = Color.FromArgb(
+                                            int.Parse(hex.Substring(0, 2), NumberStyles.HexNumber),
+                                            int.Parse(hex.Substring(2, 2), NumberStyles.HexNumber),
+                                            int.Parse(hex.Substring(4, 2), NumberStyles.HexNumber)
+                                        );
+
+                                        colorDialog1.Color = c;
+                                        panel2.BackColor   = c;
+
+                                        checkBox16.CheckState = reader.ReadElementContentAsString("CustomColorOpenState", string.Empty) switch
+                                        {
+                                            "Always" => CheckState.Checked,
+                                            "User" => CheckState.Indeterminate,
+                                            "Never" => CheckState.Unchecked,
+                                            _ => CheckState.Indeterminate
+                                        };
+
+                                        checkBox18.Checked = reader.ReadElementContentAsBoolean("ShowHelp", string.Empty);
+                                        checkBox19.Checked = reader.ReadElementContentAsBoolean("HideNonSolidColors", string.Empty);
+                                        checkBox17.Checked = reader.ReadElementContentAsBoolean("AllSwatchesVisible", string.Empty);
+
+                                        break;
+                                    }
                             }
 
                             reader.ReadEndElement();

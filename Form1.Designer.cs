@@ -1554,7 +1554,7 @@
             // checkBox19
             // 
             checkBox19.AutoSize = true;
-            checkBox19.Location = new Point(24, 206);
+            checkBox19.Location = new Point(25, 206);
             checkBox19.Name = "checkBox19";
             checkBox19.Size = new Size(118, 19);
             checkBox19.TabIndex = 12;
@@ -1576,7 +1576,7 @@
             // checkBox17
             // 
             checkBox17.AutoSize = true;
-            checkBox17.Location = new Point(23, 231);
+            checkBox17.Location = new Point(25, 231);
             checkBox17.Name = "checkBox17";
             checkBox17.Size = new Size(156, 19);
             checkBox17.TabIndex = 10;
@@ -1610,7 +1610,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Black;
-            panel2.Location = new Point(110, 105);
+            panel2.Location = new Point(110, 107);
             panel2.Name = "panel2";
             panel2.Size = new Size(29, 30);
             panel2.TabIndex = 6;
@@ -2647,7 +2647,7 @@
             // showDlgButton
             // 
             showDlgButton.Font = new Font("Segoe UI", 13F);
-            showDlgButton.Location = new Point(12, 450);
+            showDlgButton.Location = new Point(6, 450);
             showDlgButton.Name = "showDlgButton";
             showDlgButton.Size = new Size(136, 50);
             showDlgButton.TabIndex = 1;
@@ -2741,7 +2741,7 @@
             // 
             // button11
             // 
-            button11.Location = new Point(13, 506);
+            button11.Location = new Point(7, 506);
             button11.Name = "button11";
             button11.Size = new Size(61, 23);
             button11.TabIndex = 7;
@@ -2751,7 +2751,7 @@
             // 
             // button14
             // 
-            button14.Location = new Point(78, 506);
+            button14.Location = new Point(72, 506);
             button14.Name = "button14";
             button14.Size = new Size(70, 23);
             button14.TabIndex = 8;
