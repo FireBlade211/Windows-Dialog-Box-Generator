@@ -7,9 +7,10 @@ An app that can generate message boxes, task dialogs, and other common commdlg32
 
 # Installation
 Go to the [Releases](https://github.com/FireBlade211/Windows-Dialog-Box-Generator/releases) page, download the latest ZIP file, extract it, and run the executable inside.
-You may wonder why there are 2 zip files available for download:
+There are 2 ZIP files available for download:
 - Self-contained contains the .NET 8.0 runtime, so you don't need to have it installed to be able to run the app.
 - Framework does not contain the .NET 8.0 runtime, so you need to have it installed on your system to use it.
+[You can download the runtime here.](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 # License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)<br>
